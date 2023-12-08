@@ -1,0 +1,196 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.checkout {
+  padding-top: 10%;
+  background-image: url(../../../assets/headerImg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include mobile {
+    padding-top: 40%;
+  }
+
+  .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 50px;
+
+    .title {
+      font-weight: 700;
+      font-size: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+
+      @include mobile {
+        gap: 10px;
+      }
+
+      .basicInfo {
+        .topic {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .inputSection {
+          display: flex;
+          gap: 50px;
+
+          @include mobile {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .inputItem {
+            display: flex;
+            flex-direction: column;
+            font-family: "Poppins", sans-serif;
+
+            input {
+              padding: 10px;
+              width: 300px;
+              background-color: rgba(136, 136, 136, 0.4);
+              border: none;
+              border-radius: 10px;
+              outline: none;
+              font-size: 15px;
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+
+              @include smallMobile {
+                width: 250px;
+              }
+            }
+
+            textarea {
+              width: 300px;
+              background-color: rgba(136, 136, 136, 0.4);
+              border: none;
+              resize: none;
+              outline: none;
+              border-radius: 10px;
+              padding: 10px;
+              font-size: 15px;
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+
+              @include smallMobile {
+                width: 250px;
+              }
+            }
+          }
+        }
+      }
+
+      .paymentInfo {
+        display: flex;
+        flex-direction: column;
+        font-family: "Poppins", sans-serif;
+
+        .topic {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .inputSection {
+          display: flex;
+          gap: 50px;
+
+          @include mobile {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .inputItem {
+            display: flex;
+            flex-direction: column;
+
+            input {
+              padding: 10px;
+              text-align: center;
+              background-color: rgba(136, 136, 136, 0.4);
+              border: none;
+              outline: none;
+              border-radius: 10px;
+              font-size: 14px;
+              font-family: "Poppins";
+            }
+
+            .cardNo {
+              width: 150px;
+            }
+
+            .expiry {
+              width: 75px;
+            }
+
+            .ccv {
+              width: 75px;
+            }
+          }
+        }
+      }
+
+      .cashOn {
+        .inputItem {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: "Poppins";
+        }
+      }
+
+      .proceedBtn {
+        padding: 15px;
+        width: 300px;
+        margin-top: 20px;
+        background-color: #3a3a40;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: "Poppins";
+
+        @include smallMobile {
+          width: 250px;
+        }
+
+        &:hover {
+          background-color: #1c1c20;
+        }
+      }
+    }
+  }
+}

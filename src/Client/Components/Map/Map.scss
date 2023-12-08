@@ -1,0 +1,45 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.map {
+  width: 500px;
+  height: 500px;
+  background-color: #3a3a40;
+
+  @include mobile {
+    width: 300px;
+    height: 300px;
+  }
+
+  @include smallMobile {
+    width: 250px;
+    height: 250px;
+  }
+}

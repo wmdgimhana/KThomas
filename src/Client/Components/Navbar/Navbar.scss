@@ -1,0 +1,235 @@
+@mixin mobile {
+  @media screen and (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  @include desktop {
+    padding: 10px 40px 10px 40px;
+  }
+
+  @include smallMobile {
+    padding: 10px 10px 10px 10px;
+  }
+
+  @include desktop {
+    .menuIcon {
+      display: none;
+    }
+  }
+
+  @include smallMobile {
+    .menuIcon {
+      .ico {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .logo {
+    img {
+      cursor: pointer;
+
+      @include smallMobile {
+        width: 150px;
+      }
+
+      @include desktop {
+        width: 100%;
+      }
+    }
+
+    @include smallMobile {
+      display: none;
+    }
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: rgb(41, 41, 41);
+    }
+
+    .active {
+      color: #c92328;
+    }
+
+    .line {
+      width: 1px;
+      height: 20px;
+      background-color: black;
+    }
+
+    /* navbar hover effect */
+    a {
+      position: relative;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      background-color: #c92328;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -5px;
+      transition: 0.4s;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    @include smallMobile {
+      display: none;
+    }
+
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include smallMobile {
+      gap: 5px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .searchIcon {
+        .searchIco {
+          cursor: pointer;
+          font-size: 35px;
+        }
+      }
+
+      @include tablet {
+        display: flex;
+      }
+    }
+
+    .mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50px;
+      background-color: #c92328;
+      position: absolute;
+      left: 10;
+      top: 0;
+      bottom: 25px;
+      right: 0;
+      margin: auto;
+    }
+
+    .fav {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+
+      .favIco {
+        font-size: 30px;
+      }
+    }
+
+    .cart {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+
+      .cartIco {
+        font-size: 30px;
+      }
+    }
+
+    .ico {
+      color: rgb(41, 41, 41);
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  @include smallMobile {
+    .mobileNavLinks {
+      position: absolute;
+      background-color: #fff;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 20px;
+      color: black;
+
+      a {
+        color: black;
+      }
+
+      .closeIcon {
+        margin-bottom: 5%;
+        .ico {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    .mobileNavLinks {
+      display: none;
+    }
+  }
+}

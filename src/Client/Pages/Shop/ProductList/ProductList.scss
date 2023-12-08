@@ -1,0 +1,68 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @include mobile {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Poppins";
+    margin-top: 50px;
+    font-size: 14px;
+  }
+
+  .paginationBttns a {
+    background-color: transparent;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: #fff;
+    }
+  }
+}

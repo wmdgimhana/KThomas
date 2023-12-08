@@ -1,0 +1,146 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 4rem;
+
+  @include mobile {
+    padding-right: 30px;
+    margin-top: 40px;
+  }
+
+  @include smallMobile {
+    margin-top: 5%;
+    gap: 10px;
+  }
+
+  label {
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    color: #3b3b3b;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+
+    .filterSection {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .filterTitle {
+    span {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+
+  .filter1 {
+    .filterSection2 {
+      label {
+        color: #c92328;
+      }
+    }
+  }
+
+  .filter4 {
+    .colorFilters {
+      display: flex;
+      gap: 10px;
+
+      input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        background-color: #cfccd3;
+      }
+
+      input[type="radio"]:checked {
+        border: 1px solid #c92328;
+      }
+
+      .gray {
+        input[type="radio"] {
+          background-color: #cfccd3;
+        }
+      }
+
+      .brown {
+        input[type="radio"] {
+          background-color: #693737b8;
+        }
+      }
+
+      .black {
+        input[type="radio"] {
+          background-color: #000024;
+        }
+      }
+
+      .lightBlack {
+        input[type="radio"] {
+          background-color: #141414e0;
+        }
+      }
+    }
+  }
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: #cfccd3;
+  }
+
+  input[type="radio"]:checked {
+    background-color: #c92328;
+  }
+}

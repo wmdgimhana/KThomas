@@ -1,0 +1,105 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.productCard {
+  width: 200px;
+  height: 400px;
+
+  @include mobile {
+    width: 150px;
+    height: 350px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #eeedf2;
+    padding: 10px;
+    position: relative;
+
+    .favIco {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .offer {
+      position: absolute;
+      background-color: #c92328;
+      color: #fff;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .productName {
+        span {
+          font-weight: 600;
+          color: rgb(46, 46, 46);
+
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 400;
+
+      .cartIco {
+        cursor: pointer;
+        color: rgb(46, 46, 46);
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

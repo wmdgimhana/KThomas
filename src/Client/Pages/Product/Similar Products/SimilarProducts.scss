@@ -1,0 +1,45 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+.similarProducts {
+  display: flex;
+  gap: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  flex-wrap: wrap;
+
+  @include mobile {
+    gap: 40px;
+    padding: 0;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  @include smallMobile {
+    gap: 10px;
+    padding: 2px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+}

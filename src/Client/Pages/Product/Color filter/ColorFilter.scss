@@ -1,0 +1,50 @@
+.colorFilters{
+
+    display: flex;
+    gap: 10px;
+
+    input[type="radio"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        background-color: #cfccd3;
+       }
+
+       input[type="radio"]:checked{
+        border: 1px solid #C92328;
+       }
+
+
+       .gray{
+
+        input[type="radio"]{
+            background-color: #cfccd3;
+        }
+       }
+
+
+       .brown{
+        input[type="radio"]{
+            background-color: #693737B8;
+        }
+       }
+
+
+       .black{
+        input[type="radio"]{
+            background-color: #000024;
+        }
+       }
+
+       .lightBlack{
+        input[type="radio"]{
+            background-color: #141414E0;
+        }
+       }
+}

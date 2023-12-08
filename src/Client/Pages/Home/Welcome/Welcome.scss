@@ -1,0 +1,147 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.welcome {
+  background-image: url(../../../../assets/headerImg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px 0 40px;
+
+    .top {
+      display: flex;
+      margin-top: 10%;
+
+      .left {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include mobile {
+          padding-top: 50%;
+          text-align: left;
+          justify-content: left;
+        }
+
+        @include smallMobile {
+          text-align: left;
+          justify-content: left;
+        }
+
+        .hLogo {
+          width: fit-content;
+          height: fit-content;
+        }
+
+        @include smallMobile {
+        }
+
+        .description {
+          font-weight: 500;
+          color: rgb(63, 63, 63);
+        }
+
+        .socialIcons {
+          display: flex;
+          gap: 20px;
+          color: rgb(63, 63, 63);
+          margin-top: 20px;
+
+          a {
+            color: rgb(63, 63, 63);
+          }
+          .ico {
+            cursor: pointer;
+
+            &:hover {
+              color: black;
+            }
+          }
+        }
+      }
+
+      .right {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+          .sh1 {
+            display: none;
+          }
+
+          .sh2 {
+            display: none;
+          }
+        }
+
+        .sh2 {
+          width: fit-content;
+          height: fit-content;
+          margin-left: 50%;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: center;
+
+      .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: rgb(95, 95, 95);
+
+        @include mobile {
+          padding-top: 50%;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        }
+
+        span {
+          &:hover {
+            color: rgb(63, 63, 63);
+          }
+        }
+      }
+    }
+  }
+}

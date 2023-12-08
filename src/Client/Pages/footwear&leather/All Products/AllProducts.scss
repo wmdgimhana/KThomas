@@ -1,0 +1,103 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.allProducts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 20px 40px 20px 40px;
+  margin-bottom: 0;
+
+  @include mobile {
+    padding: 20px 20px 20px 20px;
+  }
+
+  @include smallMobile {
+    padding: 2px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+
+      @include mobile {
+        font-size: 17px;
+      }
+    }
+
+    .searchBox {
+      .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0;
+
+        @include mobile {
+          width: 150px;
+        }
+      }
+
+      .searchIco {
+        @include smallMobile {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .productsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .products {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 150px 60px;
+      flex-wrap: wrap;
+
+      @include mobile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+  }
+}

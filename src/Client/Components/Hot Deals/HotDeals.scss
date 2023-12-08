@@ -1,0 +1,103 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.hotDeals {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 20px 40px 20px 40px;
+  gap: 20px;
+
+  .top {
+    display: flex;
+    justify-content: center;
+
+    .title {
+      font-size: 25px;
+      font-weight: 700;
+      color: #c92328;
+
+      @include smallMobile {
+        text-align: center;
+      }
+    }
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+
+    .slider {
+      margin-top: 20px;
+
+      .slick-track {
+        display: flex;
+        align-items: center;
+      }
+
+      .slick-slide {
+        display: flex;
+        justify-content: center;
+        margin: 0 10px;
+      }
+
+      .slick-list {
+        overflow: hidden;
+      }
+
+      .slick-dots {
+        bottom: -50px;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    color: rgb(61, 61, 61);
+    justify-content: center;
+    margin-top: 5%;
+
+    @include mobile {
+      margin-top: 15%;
+    }
+
+    .ico {
+      font-size: 15px;
+    }
+
+    .ending {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: rgb(100, 100, 100);
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@mixin mobile {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+.contactForm {
+  padding: 20px 40px 20px 40px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    padding: 10px 10px 10px 10px;
+  }
+  .container {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include mobile {
+        text-align: center;
+      }
+
+      .titleText {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .desc {
+        color: #5c5c5c;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .name {
+        display: flex;
+        gap: 10px;
+
+        @include mobile {
+          flex-direction: column;
+        }
+
+        @include smallMobile {
+          flex-direction: column;
+        }
+      }
+
+      input {
+        padding: 10px;
+        border: none;
+        background-color: #eeedf2;
+        outline: none;
+        font-weight: 500;
+      }
+
+      textarea {
+        border: none;
+        background-color: #eeedf2;
+        resize: none;
+        outline: none;
+        padding: 10px;
+      }
+
+      button {
+        padding: 7px;
+        border: none;
+        background-color: #3a3a40;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+
+        &:hover {
+          background-color: #2b2b30;
+        }
+      }
+    }
+  }
+}
